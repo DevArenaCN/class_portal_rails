@@ -1,3 +1,4 @@
+
 class ApplicationController < ActionController::Base
   def current_user
     return unless session[:user_id]
