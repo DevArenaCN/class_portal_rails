@@ -2,6 +2,9 @@ class AdminsController < ApplicationController
   def admin_params
     params.require(:admin).permit(:name, :email, :password, :role)
   end
+  def current_user
+    Admin.current_user_id == 2
+  end
 
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
@@ -15,8 +18,8 @@ class AdminsController < ApplicationController
   # GET /admins/1
   # GET /admins/1.json
   def show
-    # @admin = Admin.find([params :admin])
-    # authorize! :show, @admin
+     # @admin = Admin.find(params[:admin])
+     # authorize! :show, @admin
   end
 
   # GET /admins/new
