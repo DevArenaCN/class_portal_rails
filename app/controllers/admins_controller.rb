@@ -2,10 +2,12 @@ class AdminsController < ApplicationController
   def admin_params
     params.require(:admin).permit(:name, :email, :password, :role)
   end
-  def current_user
-    Admin.current_user_id == 2
+  # def current_user
+  #   Admin.current_user_id == 2
+  # end
+  def role?(type)
+    admin.pluck(:role).include?(type.to_s)
   end
-
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
 
