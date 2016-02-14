@@ -1,4 +1,5 @@
 class Admin < ActiveRecord::Base
+
   # def user_params
   #   params.require(:admin).permit(:username, :email, :password, :role)
   # end
