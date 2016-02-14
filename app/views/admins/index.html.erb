@@ -18,12 +18,9 @@
       <tr>
         <td><%= admin.name %></td>
         <td><%= admin.email %></td>
-        <td><%= admin.password %></td>
+        <td><%= '*****' %></td>
         <td><%= admin.role %></td>
         <td><%= link_to 'Show', admin %></td>
-
-        <!--if user is Superadmin, then can edit and destory admins-->
-
         <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
         <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
@@ -33,5 +30,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Admin', new_admin_path %>
+<% if can? :create, Admin %>
+  <%= link_to 'New Admin', new_admin_path %>
+<% end %>
